@@ -23,6 +23,7 @@ import {
 import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import { cn } from './lib/utils';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // --- Components ---
 
@@ -944,6 +945,7 @@ export default function App() {
       <OnboardingModal isOpen={isOnboardingOpen} onClose={() => setIsOnboardingOpen(false)} />
       <WhatsAppButton />
       <ScrollToTop />
+      <SpeedInsights />
     </div>
   );
 }
