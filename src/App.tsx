@@ -93,13 +93,6 @@ const OnboardingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => 
     setIsSubmitting(true);
     try {
       setError('');
-      const q = query(collection(db, 'onboardingSubmissions'), where('email', '==', formData.email));
-      const querySnapshot = await getDocs(q);
-      if (!querySnapshot.empty) {
-        setError(t('modal_duplicate_email'));
-        setIsSubmitting(false);
-        return;
-      }
       await addDoc(collection(db, 'onboardingSubmissions'), {
         ...formData,
         createdAt: new Date().toISOString(),
